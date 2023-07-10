@@ -1,0 +1,30 @@
+Maximum Subarray
+Link:https://leetcode.com/problems/maximum-subarray/description/?envType=study-plan&envId=data-structure-i&plan=data-structure
+
+ int maxSubArray(vector<int>& nums) {
+        int ans=INT_MIN;
+        int currsum=0;
+        for(int i=0;i<nums.size();i++){
+             currsum+=nums[i];
+             ans=max(ans,currsum);
+             if(currsum<0){
+                 currsum=0;
+             }
+        }
+        return ans;
+ }
+
+
+Contains Duplicate
+Link :https://leetcode.com/problems/contains-duplicate/description/
+
+bool containsDuplicate(vector<int>& nums) {
+        int n = nums.size();
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size()-1;i++){
+            if(nums[i]==nums[i+1]){
+                return true;
+            }
+        }
+        return false;
+    }
