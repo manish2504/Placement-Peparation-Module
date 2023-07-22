@@ -1,0 +1,19 @@
+class Solution {
+public:
+int solve(vector<int> a,int n,int k){
+    int ans=0;
+    int prefix=0;
+    unordered_map<int,int> mp; 
+    mp[prefix]=1;
+    for(int i=0;i<n;i++){
+        prefix+=a[i];
+        if(mp.find(prefix-k)!=mp.end()){ans+=mp[prefix-k];
+        }
+        mp[prefix]++;
+    }
+    return ans;
+}
+    int subarraySum(vector<int>& nums, int k) {
+        return solve(nums,nums.size(),k);
+    }
+};
